@@ -32,6 +32,7 @@ void Motor::stop()
 }
 int Motor::limiter(int val,int upper,int  lower)
 {
-	limiter=
+	val=val > upper ? upper:val;
+	val=val < lower ? lower:val;
 	return val;
 }
