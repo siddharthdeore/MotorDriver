@@ -12,6 +12,7 @@ Motor::Motor(int pin_pwm, int pin_A, int pin_B)
 
 void Motor::rotate(int speed)
 {
+  speed = limiter(speed,-100,100);
   if (speed > 0)
   {
     digitalWrite(_pin_A, HIGH);
