@@ -1,5 +1,11 @@
 #include "Arduino.h"
 #include "MotorDriver.h"
+/**
+ * Initialise Motor Driver
+ * @param pin_pwm	Enable pin of motor driver
+ * @param pin_A		Direction pin of A
+ * @param pin_B		Direction pin of B
+ */
 Motor::Motor(int pin_pwm, int pin_A, int pin_B)
 {
   pinMode(pin_pwm, OUTPUT);
@@ -9,7 +15,10 @@ Motor::Motor(int pin_pwm, int pin_A, int pin_B)
   _pin_A = pin_A;
   _pin_B = pin_B;
 }
-
+/**
+ * Start the motor
+ * @param speed 	speed of motor from -100 to 100, negative sign denotes direction 
+ */
 void Motor::rotate(int speed)
 {
   speed = limiter(speed,-100,100);
